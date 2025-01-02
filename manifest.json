@@ -1,0 +1,18 @@
+{
+    "name": "Where I left it",
+    "short_name": "Wili",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "lang": "es-AR",
+    "orientation": "portrait-primary",
+    "background_color": "#ffffff",
+    "theme_color": "#000000",
+    "icons": [
+        {
+            "src": "images/question-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
