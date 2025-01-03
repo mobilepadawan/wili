@@ -9,8 +9,8 @@ const btnUserProfile = document.querySelector('button#btnUserProfile')
 const userProfileDialog = document.querySelector('dialog#userProfileDialog')
 
 // HERE WE GO Map
-const appId = 'Zl124spEu1q86x896rk8'
-const apiKey = 'tUvsAI7TyZ14Mp4ThrBkmkS1azo0EwOgW6vXwKYEZDc'
+const appId = ''
+const apiKey = ''
 const platform = new H.service.Platform({ apikey: apiKey, })
 const defaultLayers = platform.createDefaultLayers()
 
