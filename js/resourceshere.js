@@ -1,16 +1,9 @@
-export const currentIcon = L.icon({ // User location Icon
-    iconUrl: 'https://cdn-icons-png.flaticon.com/512/709/709699.png',
-    iconSize: [40, 40],
-    iconAnchor: [20, 40],
-    popupAnchor: [0, -40]
+export const initialIcon = new H.map.Icon('https://cdn-icons-png.flaticon.com/512/3774/3774278.png', {
+    size: { w: 32, h: 32 },
 })
 
-export const initialIcon = L.icon({ // Destination custom Icon
-    // iconUrl: 'https://cdn-icons-png.flaticon.com/512/3774/3774278.png',
-    iconUrl: 'https://cdn-icons-png.flaticon.com/512/744/744465.png',
-    iconSize: [64, 64],
-    iconAnchor: [32, 64],
-    popupAnchor: [0, -40]
+export const currentLocationIcon = new H.map.Icon('https://cdn-icons-png.flaticon.com/512/709/709699.png', {
+    size: { w: 32, h: 32 },
 })
 
 export function addUserProfileDialog() {

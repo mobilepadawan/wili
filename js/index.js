@@ -37,21 +37,23 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
     scrollWheelZoom: true,
     scale: 'metric',
     language: 'es',
-    enableHighAccuracy: true,
+    // enableHighAccuracy: true,
     animate: true,
     duration: 0.55,
-    attribution: false,
+    // attribution: false,
 }).addTo(map)
 
 // EVENTOS
-document.addEventListener('contextmenu', (e)=> e.preventDefault())
+// document.addEventListener('contextmenu', (e)=> e.preventDefault())
 
 btnSetLocation.addEventListener('click', ()=> {
     navigator.geolocation.getCurrentPosition((position)=> {
         // const initialLat = position.coords.latitude
         // const initialLng = position.coords.longitude
-        const sourceLat = -34.634932
-        const sourceLng = -58.463960
+        // const sourceLat = -34.634932 (Directorio)
+        // const sourceLng = -58.463960 (Pje. Italia)
+        const sourceLat = -34.632065
+        const sourceLng = -58.468770
         const initialLat = sourceLat
         const initialLng = sourceLng
 
@@ -79,7 +81,12 @@ btnComeBack.addEventListener('click', ()=> {
             L.Routing.control({
                 waypoints: [ L.latLng(initialLocation.lat, initialLocation.lng),
                              L.latLng(currentLat, currentLng) ],
-                routeOptions: { profile: 'walking' },
+                             router: L.Routing.osrmv1({
+                                routeOptions: { profile: 'walking', 
+                                                alternatives: false, 
+                                                language: 'es' 
+                                            },
+                             }),
                 createMarker: ()=> null,
                 lineOptions: { styles: [{ weight: 5, opacity: 0.8 }] }
             }).addTo(map)
@@ -90,7 +97,6 @@ btnComeBack.addEventListener('click', ()=> {
 
 
         }, (error)=>  console.log('Error al obtener la ubicación: ', error))
-
     }
 })
 

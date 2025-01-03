@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Where I left it</title>
+    <link rel="shortcut icon" href="./images/question-512.png" type="image/png">
+    <link rel="preconnect" href="https://js.api.here.com/v3/3.1/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+    <script type="module" src="js/indexhere.js"></script>
+    <link rel="stylesheet" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+    <div id="map">
+        <!-- Área donde se dibuja el mapa -->
+    </div>
+    <div class="bottom-nav">
+        <!-- Barra de navegación inferior -->
+        <button id="btnSetLocation"></button>
+        <button id="btnComeBack"></button>
+        <button id="btnLocationHistory"></button>
+        <button id="btnUserProfile"></button>
+    </div>
+    <!-- Dialog User Profile -->
+    <dialog id="userProfileDialog">
+        <div class="header">
+            <h1>Perfil de usuario</h1>
+            <button id="btnClose">X</button>
+        </div>
+        <label for="inputNickname">Nickname o Alias</label>
+        <input type="text" id="inputNickname" placeholder="Ingresa tu Nickname o Alias">
+        <hr>
+        <p>Tipo de vehículo que utilizas</p>
+        <div class="userVehiclePreference">
+            <div>
+                <button>
+                    <img src="https://cdn-icons-png.flaticon.com/512/9069/9069966.png" alt="">
+                    <p>A pie</p>
+                </button>
+            </div>
+            <div>
+                <button>
+                    <img src="https://cdn-icons-png.flaticon.com/512/732/732944.png" alt="">
+                    <p>Bici</p>
+                </button>
+            </div>
+            <div>
+                <button>
+                    <img src="https://cdn-icons-png.flaticon.com/512/3774/3774278.png" alt="">
+                    <p>Automóvil</p>
+                </button>
+            </div>
+        </div>
+    </dialog>
+</body>
+
+</html>
