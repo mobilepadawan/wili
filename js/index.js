@@ -50,10 +50,10 @@ btnSetLocation.addEventListener('click', ()=> {
     navigator.geolocation.getCurrentPosition((position)=> {
         // const initialLat = position.coords.latitude
         // const initialLng = position.coords.longitude
-        // const sourceLat = -34.634932 (Directorio)
-        // const sourceLng = -58.463960 (Pje. Italia)
-        const sourceLat = -34.632065
-        const sourceLng = -58.468770
+        const sourceLat = -34.634932 // (Directorio)
+        const sourceLng = -58.463960 // (Pje. Italia)
+        // const sourceLat = -34.632065
+        // const sourceLng = -58.468770
         const initialLat = sourceLat
         const initialLng = sourceLng
 
@@ -76,13 +76,13 @@ btnComeBack.addEventListener('click', ()=> {
 
             L.marker([currentLat, currentLng], { icon: currentIcon }).addTo(map).bindPopup('Tú')
 
-            map.fitBounds([[initialLocation.lat, initialLocation.lng], [currentLat, currentLng]])
+            map.fitBounds([[currentLat, currentLng], [initialLocation.lat, initialLocation.lng]])
             
             L.Routing.control({
                 waypoints: [ L.latLng(initialLocation.lat, initialLocation.lng),
                              L.latLng(currentLat, currentLng) ],
                              router: L.Routing.osrmv1({
-                                routeOptions: { profile: 'walking', 
+                                routeOptions: { profile: 'foot', 
                                                 alternatives: false, 
                                                 language: 'es' 
                                             },
@@ -92,8 +92,8 @@ btnComeBack.addEventListener('click', ()=> {
             }).addTo(map)
             .on('routesfound', (e)=> console.log(e.routes[0]) )
 
-            let distance = map.distance([currentLat, currentLng], [initialLocation.lat, initialLocation.lng])
-            console.log(distance)
+            // let distance = map.distance([initialLocation.lat, initialLocation.lng], [currentLat, currentLng] )
+            // console.log(distance)
 
 
         }, (error)=>  console.log('Error al obtener la ubicación: ', error))
@@ -107,7 +107,6 @@ btnUserProfile.addEventListener('click', ()=> {
 } )
 
 document.querySelector('div.userVehiclePreference').addEventListener('click', (e)=> {
-
     const buttons = document.querySelectorAll('div.userVehiclePreference div button')
     console.log(buttons.length)
     buttons.length > 0 && buttons.forEach((btn)=> btn.style.backgroundColor = '' )
